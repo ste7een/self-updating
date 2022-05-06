@@ -37,6 +37,15 @@ class newUpdate extends Command
         $this->info('Migrated.');
         // Process('git merge main');
         $this->info('Merged.');
+        $process = new Process(["git","pull"]);
+        $process->setWorkingDirectory(base_path());
+        $process->run(function ($type, $buffer) {
+            if (Process::ERR === $type) {
+                echo 'ERR > '.$buffer;
+            } else {
+                echo 'OUT > '.$buffer;
+            }
+        });
         return 0;
         //command to merge the main branch
         // $client = new \GuzzleHttp\Client();
