@@ -26,4 +26,21 @@ class dd extends Controller
             'newUpdate' => $newUpdate,
         ]);
     }
+
+    public function update()
+    {
+        Artisan::call('migrate');
+        $this->info('Migrated.');
+        $this->info('Merged.');
+        $process = new Process(["git","pull"]);
+        $process->setWorkingDirectory(base_path());
+        $process->run(function ($type, $buffer) {
+            if (Process::ERR === $type) {
+                echo 'ERR > '.$buffer;
+            } else {
+                echo 'OUT > '.$buffer;
+            }
+        });
+        return 0;
+    }
 }

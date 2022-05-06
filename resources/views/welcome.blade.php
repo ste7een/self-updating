@@ -41,7 +41,9 @@
                 @if($newUpdate)
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         New update is available v.  {{$latest}} 🔥🔥
-                        <button type="button" class="btn-primary">update</button>
+                        <form action="{{route('update')}}">
+                            <button type="button" class="btn-primary">update</button>
+                        </form>
                     </div>
                 @endif
                 <div>
