@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Artisan;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class dd extends Controller
 {
@@ -30,8 +33,8 @@ class dd extends Controller
     public function update()
     {
         Artisan::call('migrate');
-        $this->info('Migrated.');
-        $this->info('Merged.');
+        // $this->info('Migrated.');
+        // $this->info('Merged.');
         $process = new Process(["git","pull"]);
         $process->setWorkingDirectory(base_path());
         $process->run(function ($type, $buffer) {
