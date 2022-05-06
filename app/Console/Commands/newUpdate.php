@@ -36,7 +36,8 @@ class newUpdate extends Command
         Artisan::call('migrate');
         $this->info('Migrated.');
         // Process('git merge main');
-        $process = new Process(["git","pull"]);
+        $process = new Process(["git","merge","main"]);
+        
         $process->setWorkingDirectory(base_path());
         $process->run(function ($type, $buffer) {
             if (Process::ERR === $type) {
