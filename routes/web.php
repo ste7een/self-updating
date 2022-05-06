@@ -19,4 +19,6 @@ use App\Http\Controllers\dd;
 // });
 
 Route::get('/', [dd::class, 'dd'])->name('test');
+Route::get('/update', [dd::class, 'update'])->name('update');
+
 

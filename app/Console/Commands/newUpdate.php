@@ -36,7 +36,6 @@ class newUpdate extends Command
         Artisan::call('migrate');
         $this->info('Migrated.');
         // Process('git merge main');
-        $this->info('Merged.');
         $process = new Process(["git","pull"]);
         $process->setWorkingDirectory(base_path());
         $process->run(function ($type, $buffer) {
@@ -46,21 +45,7 @@ class newUpdate extends Command
                 echo 'OUT > '.$buffer;
             }
         });
+        $this->info('Merged.');
         return 0;
-        //command to merge the main branch
-        // $client = new \GuzzleHttp\Client();
-        // $res = $client->request('GET', 'https://api.github.com/repos/ste7een/self-updating/releases/latest');
-        // $latest = json_decode($res->getBody()->getContents());
-
-        // // get current release from config
-        // $current = config('app.version');
-
-        // if ($latest->tag_name > $current) {
-        //     Artisan::call('down');
-        //     Artisan::call('up');
-        //     $this->info('New update available. Please restart your application.');
-        // } else {
-        //     $this->info('No new updates available.');
-        // }
     }
 }
