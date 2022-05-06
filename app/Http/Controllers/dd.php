@@ -34,8 +34,8 @@ class dd extends Controller
     {
         Artisan::call('migrate');
         // $this->info('Migrated.');
-        // $this->info('Merged.');
-        $process = new Process(["git","pull"]);
+        // Process('git merge main');
+        $process = new Process(["git" , "merge" , "origin/main"]);
         $process->setWorkingDirectory(base_path());
         $process->run(function ($type, $buffer) {
             if (Process::ERR === $type) {
@@ -44,6 +44,6 @@ class dd extends Controller
                 echo 'OUT > '.$buffer;
             }
         });
-        return 0;
+        // $this->info('Merged.');
     }
 }
