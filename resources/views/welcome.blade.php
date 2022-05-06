@@ -47,7 +47,7 @@
                     </div>
                 @endif
                 <div>
-                    <h1 class="text-light">new thing v- 1.0.5</h1>
+                    <h1 class="text-light">new thing v- 1.0.6</h1>
                 </div>
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
