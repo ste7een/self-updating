@@ -36,16 +36,6 @@ class newUpdate extends Command
         Artisan::call('migrate');
         $this->info('Migrated.');
         // Process('git merge main');
-        $process = new Process(["git" , "merge" , "origin/main"]);
-        $process->setWorkingDirectory(base_path());
-        $process->run(function ($type, $buffer) {
-            if (Process::ERR === $type) {
-                echo 'ERR > '.$buffer;
-            } else {
-                echo 'OUT > '.$buffer;
-            }
-        });
-        
         $process = new Process(["git" ,"pull"]);
         $process->setWorkingDirectory(base_path());
         $process->run(function ($type, $buffer) {
@@ -55,7 +45,27 @@ class newUpdate extends Command
                 echo 'OUT > '.$buffer;
             }
         });
+
+        $process = new Process(["git" , "merge" , "origin/main"]);
+        $process->setWorkingDirectory(base_path());
+        $process->run(function ($type, $buffer) {
+            if (Process::ERR === $type) {
+                echo 'ERR > '.$buffer;
+            } else {
+                echo 'OUT > '.$buffer;
+            }
+        });
         $this->info('Merged.');
+
+        $process = new Process(["git" , "push"]);
+        $process->setWorkingDirectory(base_path());
+        $process->run(function ($type, $buffer) {
+            if (Process::ERR === $type) {
+                echo 'ERR > '.$buffer;
+            } else {
+                echo 'OUT > '.$buffer;
+            }
+        });
         return 0;
     }
 }
