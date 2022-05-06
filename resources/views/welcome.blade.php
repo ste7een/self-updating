@@ -41,11 +41,13 @@
                 @if($newUpdate)
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         New update is available v.  {{$latest}} 🔥🔥
-                        <button type="button" class="btn-primary">update</button>
+                        <form action="{{route('update')}}">
+                            <button type="button" class="btn-primary">update</button>
+                        </form>
                     </div>
                 @endif
                 <div>
-                    <h1 class="text-light">new thing</h1>
+                    <h1 class="text-light">new thing v- 1.0.5</h1>
                 </div>
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
