@@ -14,9 +14,9 @@ use App\Http\Controllers\dd;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+// Route::get('/update', function () {
+//     Artisan::call('newUpdate');
+// })->name('update');
 
 Route::get('/', [dd::class, 'dd'])->name('test');
 Route::get('/update', [dd::class, 'update'])->name('update');
