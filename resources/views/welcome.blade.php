@@ -40,7 +40,7 @@
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 @if($newUpdate)
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        New update is available v.  {{$latest}} 🔥🔥
+                        New update issssssss available v.  {{$latest}} 🔥🔥
                         <form action="{{route('update')}}">
                             <button type="button" class="btn-primary">update</button>
                         </form>
